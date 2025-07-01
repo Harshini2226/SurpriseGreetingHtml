@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lovesite</title>
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #ffd6e8, #ffe4ec, #fff0f5);
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      padding: 50px;
+      color: #c71585;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Floating hearts */
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: pink;
+      transform: rotate(45deg);
+      animation: float 8s infinite ease-in-out;
+      opacity: 0.7;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: pink;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(45deg);
+        opacity: 0.7;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+
+    button {
+      font-size: 20px;
+      padding: 10px;
+      border-radius: 15px;
+      background-color: pink;
+      color: red;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    button:hover {
+      background-color: #ff69b4;
+    }
+
+    #secretMessage {
+      font-size: xx-large;
+      color: hotpink;
+      margin-top: 20px;
+    }
+
+    #typingText {
+      color: purple;
+      font-size: xx-large;
+      margin-top: 40px;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 30px;
+      font-size: 20px;
+      color: deeppink;
+      text-decoration: none;
+      border: 2px dashed deeppink;
+      padding: 10px 15px;
+      border-radius: 12px;
+      background-color: #fff0f5;
+    }
+
+    a:hover {
+      background-color: #ffe4e1;
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+    <!-- Heart container -->
+    <div id="hearts-container"></div>
+
+    <button onclick="showMessage()">
+      My Love, a small message — click me!
+    </button>
+
+
+    <p>
+        Dear Vaishu....
+        Small Token of love...
+        Infinite's love...
+        Love you choo much^-^...
+    </p>
+
+    <p id="secretMessage" style="display:none;">
+      You are the best thing that happened to me ❤️❤️❤️
+    </p>
+
+    <h2 id="typingText"></h2>
+
+    <a href="indexex3.html">Surprise Greeting Card</a>
+  </main>
+
+  <script>
+    // Show popup after 5 seconds
+    setTimeout(function () {
+      alert("Surprise!!! Love you forever ❤️❤️❤️");
+      alert("And remember uh r Mine forever I am not gonna give you to anyone ok❤️❤️❤️");
+    }, 5000);
+
+    // Reveal hidden message
+    function showMessage() {
+      document.getElementById('secretMessage').style.display = 'block';
+    }
+
+    // Typing effect
+    const text = "Always Yours! 💕 Love you maa..";
+    let i = 0;
+    function typeWriter() {
+      if (i < text.length) {
+        document.getElementById("typingText").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 100);
+      }
+    }
+
+    // Create floating hearts
+    function createHearts() {
+      const container = document.getElementById('hearts-container');
+      for (let i = 0; i < 30; i++) {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.top = Math.random() * 100 + "vh";
+        heart.style.animationDuration = (5 + Math.random() * 5) + "s";
+        container.appendChild(heart);
+      }
+    }
+
+    // When page loads
+    window.onload = function () {
+      typeWriter();
+      createHearts();
+    };
+  </script>
+</body>
+</html>

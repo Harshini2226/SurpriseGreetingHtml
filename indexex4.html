@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Will You Be Mine?</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      font-family: 'Cursive', sans-serif;
+      text-align: center;
+      background: linear-gradient(to top right, #fff0f5, #ffe4e1);
+      color: #d6336c;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-top: 100px;
+      animation: popin 2s ease-in-out;
+      z-index: 2;
+      position: relative;
+    }
+
+    p {
+      font-size: 1.8em;
+      margin-top: 30px;
+      animation: fadeIn 3s ease-in;
+      z-index: 2;
+      position: relative;
+    }
+
+    button {
+      margin-top: 40px;
+      padding: 15px 40px;
+      font-size: 1.5em;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+      box-shadow: 0 0 20px pink;
+      transition: transform 0.3s;
+      z-index: 2;
+      position: relative;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+      background-color: #ff1493;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes popin {
+      0% { transform: scale(0.5); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    #loveMessage {
+      display: none;
+      margin-top: 50px;
+      animation: fadeIn 2s ease-in-out;
+      z-index: 2;
+      position: relative;
+    }
+
+    #loveMessage img {
+      width: 150px;
+      height: auto;
+      margin-top: 20px;
+    }
+
+    #loveMessage h2 {
+      color: #e91e63;
+      font-size: 2.5em;
+      margin: 20px 0 0;
+      animation: popin 2s ease-in-out;
+    }
+
+    /* Glowing Floating Red Hearts */
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: red;
+      transform: rotate(45deg);
+      animation: floatUp 10s linear infinite;
+      opacity: 0.7;
+      z-index: 0;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) scale(1) rotate(45deg);
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(-120vh) scale(1.5) rotate(45deg);
+        opacity: 0;
+      }
+    }
+
+    a {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-color: white;
+      padding: 6px 10px;
+      border-radius: 10px;
+      text-decoration: none;
+      color: deeppink;
+      font-weight: bold;
+      z-index: 2;
+    }
+  </style>
+</head>
+
+<body>
+
+  <a href="file:///C:/Users/thiru/OneDrive/Documents/Desktop/vscode/indexex5.html">This is for uh......</a>
+
+<h1>🌹 Will You Be Mine? 🌹</h1>
+<p>From the moment I met you, everything changed.<br>
+   You are the flower in my garden of life... 💐</p>
+
+<button onclick="showLove(); playSound()">Yes, I Will! 💍</button>
+
+<!-- Message Box -->
+<div id="loveMessage">
+  <img src="https://cdn-icons-png.flaticon.com/512/7477/7477854.png" alt="Love Flower" />
+  <h2>I Love You ❤️ Forever!</h2>
+</div>
+
+<!-- HEARTS SCRIPT ONLY -->
+<script>
+  // Glowing Hearts
+  function createHearts() {
+    for (let i = 0; i < 35; i++) {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.bottom = "-20px";
+      heart.style.animationDuration = (6 + Math.random() * 6) + "s";
+      heart.style.opacity = Math.random();
+      heart.style.transform = `scale(${0.5 + Math.random()}) rotate(45deg)`;
+      document.body.appendChild(heart);
+    }
+  }
+
+  function showLove() {
+    document.getElementById("loveMessage").style.display = "block";
+  }
+
+  function playSound() {
+    const audio = new Audio("https://www.soundjay.com/human/sounds/heartbeat-01a.mp3");
+    audio.play();
+  }
+
+  // Start animation
+  createHearts();
+</script>
+
+</body>
+</html>

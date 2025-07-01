@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Radha Krishna – Eternal Bond</title>
+
+
+  <a href="file:///C:/Users/thiru/OneDrive/Documents/Desktop/vscode/indexex6.html">->->its not ended it yaar!</a>
+
+
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #dbeafe, #bfdbfe);
+      font-family: 'Georgia', serif;
+      text-align: center;
+      color: #2e1065;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-top: 50px;
+      animation: fadeIn 2s ease-in-out;
+      color: #1e3a8a;
+      text-shadow: 2px 2px 8px #ffffff;
+    }
+
+    p {
+      font-size: 1.4rem;
+      margin-top: 20px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      animation: fadeIn 3s ease-in-out;
+      color: #312e81;
+    }
+
+    img {
+      margin-top: 30px;
+      max-width: 300px;
+      border-radius: 25px;
+      box-shadow: 0 0 40px #93c5fd;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Cute small falling blue hearts */
+    .heart {
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      background-color: #3b82f6;
+      transform: rotate(45deg);
+      animation: fall 10s linear infinite;
+      opacity: 0.7;
+      z-index: 0;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      background-color: #3b82f6;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -7px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -7px;
+      top: 0;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-50px) rotate(0deg) scale(0.5);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(110vh) rotate(360deg) scale(1);
+        opacity: 0;
+      }
+    }
+
+    /* Style for the play button */
+    #playBtn {
+      margin-top: 30px;
+      padding: 10px 25px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      background-color: #3b82f6;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 0 10px #60a5fa;
+    }
+
+    #playBtn:hover {
+      background-color: #2563eb;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🌸 Radha & Krishna – Eternal Love 🌸</h1>
+  <p>
+    Just like Radha & Krishna, our bond is spiritual, divine, and forever.<br>
+    In every birth, I wish to find you – my soul’s melody. 💙
+  </p>
+
+  <img src="C:\Users\thiru\Pictures\Screenshots\wp4728840-sumedh-mudgalkar-wallpapers(1).jpg" alt="Radha Krishna" />
+
+  <button id="playBtn">💖 Play Background Music 💖</button>
+
+  <!-- Background music -->
+  <audio id="bgMusic" src="C:\Users\thiru\Downloads\Tu Hain Toh - PagalHits.mp3" loop></audio>
+
+  <script>
+    // Falling hearts
+    for (let i = 0; i < 30; i++) {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (6 + Math.random() * 4) + 's';
+      heart.style.opacity = 0.4 + Math.random() * 0.6;
+      document.body.appendChild(heart);
+    }
+
+    // Music play on user interaction
+    const playBtn = document.getElementById('playBtn');
+    const bgMusic = document.getElementById('bgMusic');
+
+    playBtn.addEventListener('click', () => {
+      bgMusic.play();
+      playBtn.innerText = "🎶 Music Playing 🎶";
+      playBtn.disabled = true;
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🌸 Our Beautiful Memories 🌸</title>
+
+
+
+<a href="file:///C:/Users/thiru/OneDrive/Documents/Desktop/vscode/indexex8.html">Last but not Final..</a>
+
+  
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle at top, #ffe4ec, #c3e0fc);
+      font-family: 'Cursive', sans-serif;
+      text-align: center;
+      overflow: hidden;
+      color: #3f51b5;
+    }
+
+    h1 {
+      margin-top: 40px;
+      font-size: 3rem;
+      text-shadow: 2px 2px 8px white;
+      animation: fadeIn 2s ease-in;
+    }
+
+    #carousel {
+      position: relative;
+      margin: 50px auto;
+      width: 350px;
+      height: 400px;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 0 30px #7c4dff;
+      background: #fff;
+    }
+
+    #carousel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 20px;
+      animation: rotateIn 2s ease;
+    }
+
+    #caption {
+      margin-top: 20px;
+      font-size: 1.4rem;
+      color: #6a1b9a;
+      animation: fadeInText 1s ease;
+    }
+
+    @keyframes rotateIn {
+      from { transform: rotateY(-90deg); opacity: 0; }
+      to { transform: rotateY(0); opacity: 1; }
+    }
+
+    @keyframes fadeInText {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .heart {
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      background-image: url('https://cdn-icons-png.flaticon.com/512/833/833472.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      top: -40px;
+      animation: heartFall linear infinite;
+    }
+
+    @keyframes heartFall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    #playBtn {
+      margin-top: 10px;
+      padding: 12px 30px;
+      font-size: 1rem;
+      background-color: #7e57c2;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #b39ddb;
+    }
+
+    #playBtn:hover {
+      background-color: #5e35b1;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>🌸 Our Beautiful Memories 🌸</h1>
+  <button id="playBtn">▶️ Play Music</button>
+
+  <div id="carousel">
+    <img id="slideImage" src="" alt="Memory Image" />
+  </div>
+  <div id="caption"></div>
+
+  <audio id="bgMusic" src="C:/Users/thiru/Downloads/Agar Tum Saath Ho-(Mr-Jat.in).mp3" loop></audio>
+
+  <script>
+    const images = [
+      { src: "C:/Users/thiru/Pictures/Camera Roll/IMG-20240829-WA0005.jpg", caption: "That magical evening together 💫" },
+      { src: "C:/Users/thiru/Pictures/Camera Roll/IMG-20240822-WA0007.jpg", caption: "Your smile lights up my world 🌟" },
+      { src: "C:/Users/thiru/Pictures/Camera Roll/IMG-20240922-WA0071.jpg", caption: "Forever captured in this moment 💖" },
+      { src: "C:/Users/thiru/Pictures/Camera Roll/IMG-20240922-WA0067.jpg", caption: "The beginning of our journey 💑" },
+      { src: "C:/Users/thiru/Pictures/Camera Roll/IMG-20240922-WA0000.jpg", caption: "Unforgettable memories with you 💕" },
+      { src: "C:/Users/thiru/Pictures/Camera Roll/IMG-20240921-WA0013.jpg", caption: "A day to remember, forever and always 🥰" }
+    ];
+
+    let index = 0;
+    const slideImg = document.getElementById('slideImage');
+    const caption = document.getElementById('caption');
+
+    function updateSlide() {
+      slideImg.style.animation = 'none';
+      void slideImg.offsetWidth; // trigger reflow
+      slideImg.style.animation = null;
+
+      slideImg.src = images[index].src;
+      caption.textContent = images[index].caption;
+
+      index = (index + 1) % images.length;
+    }
+
+    updateSlide();
+    setInterval(updateSlide, 4000);
+
+    for (let i = 0; i < 25; i++) {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (5 + Math.random() * 5) + 's';
+      heart.style.opacity = 0.5 + Math.random() * 0.5;
+      document.body.appendChild(heart);
+    }
+
+    const playBtn = document.getElementById('playBtn');
+    const bgMusic = document.getElementById('bgMusic');
+    playBtn.addEventListener('click', () => {
+      bgMusic.play();
+      playBtn.innerText = "🎶 Music Playing 🎶";
+      playBtn.disabled = true;
+    });
+  </script>
+</body>
+</html>
